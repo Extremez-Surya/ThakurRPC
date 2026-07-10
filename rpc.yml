@@ -33,38 +33,39 @@ rpc:
 
     # Main activity name (what shows as "Playing ...")
     # 📝 Examples: "My Custom Game", "Spotify", "YouTube"
-    name: "discord.gg/adoreme"
+    name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
 
     # Activity details (smaller text)
     # 📝 Examples: "Level 50 Warrior", "Chill Vibes Playlist"
-    details: "Thakur On Top"
+    details: "𝓘 𝓐𝓭𝓸𝓻𝓮 𝔂𝓸𝓾 𝓝𝓲𝓷𝓲 💝"
 
     # Activity state (bottom text)
     # 📝 Examples: "github.com/username", "Live Now!", "3/25 songs"
-    state: "I love you Nini 💝"
+    state: "discord.gg/adoreme"
 
     # Streaming URL (only for STREAMING type)
     # 📝 Example: "https://twitch.tv/yourchannel"
     url: "https://www.twitch.tv/thakur"
 
     # Multiple streaming cards shown in the Activity tab
-    streaming_statuses:
-      - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
-        details: "𝓘 𝓐𝓭𝓸𝓻𝓮 𝔂𝓸𝓾 𝓝𝓲𝓷𝓲 💝"
-        state: "discord.gg/adoreme"
-        url: "https://www.twitch.tv/thakur"
-      - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
-        details: "𝐎𝐮𝐭 𝐨𝐟 𝐦𝐲 𝐋𝐞𝐚𝐠𝐮𝐞 👑"
-        state: "discord.gg/adoreme"
-        url: "https://www.twitch.tv/thakur"
-      - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
-        details: "𝐋𝐞𝐠𝐚𝐜𝐲 𝐎𝐯𝐞𝐫 𝐏𝐨𝐩𝐮𝐥𝐚𝐫𝐢𝐭𝐲 💯"
-        state: "discord.gg/adoreme"
-        url: "https://www.twitch.tv/thakur"
-      - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
-        details: "𝐈 𝐝𝐨𝐧'𝐭 𝐜𝐨𝐦𝐩𝐞𝐭𝐞, 𝐈 𝐝𝐨𝐦𝐢𝐧𝐚𝐭𝐞 ⚡"
-        state: "discord.gg/adoreme"
-        url: "https://www.twitch.tv/thakur"
+    # (Disabled to prevent rotation in the streaming status UI)
+    # streaming_statuses:
+    #   - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
+    #     details: "𝓘 𝓐𝓭𝓸𝓻e 𝔂𝓸𝓾 𝓝𝓲𝓷𝓲 💝"
+    #     state: "discord.gg/adoreme"
+    #     url: "https://www.twitch.tv/thakur"
+    #   - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
+    #     details: "𝐎𝐮𝐭 𝐨𝐟 𝐦𝐲 𝐋𝐞𝐚𝐠𝐮𝐞 👑"
+    #     state: "discord.gg/adoreme"
+    #     url: "https://www.twitch.tv/thakur"
+    #   - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
+    #     details: "𝑳𝒆𝒈𝒂𝒄𝒚 𝑶𝒗𝒆𝒓 𝑷𝒐𝒑𝒖𝒍𝒂𝒓𝒊𝒕𝒚 💯"
+    #     state: "discord.gg/adoreme"
+    #     url: "https://www.twitch.tv/thakur"
+    #   - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
+    #     details: "𝐈 𝐝𝐨𝐧'𝐭 𝐜𝐨𝐦𝐩𝐞𝐭𝐞, 𝐈 𝐝𝐨𝐦𝐢𝐧𝐚𝐭𝐞 ⚡"
+    #     state: "discord.gg/adoreme"
+    #     url: "https://www.twitch.tv/thakur"
 
     # Party information (shows as "X of Y players")
     party:

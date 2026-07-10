@@ -218,31 +218,21 @@ export class RpcManager {
 
       const { RichPresence } = await import("discord.js-selfbot-v13");
 
-      const presenceEntries =
-        streamingStatuses.length > 0
-          ? this.rotateEntries(
-              streamingStatuses,
-              options.rotationIndex ?? this.streamingRotationIndex,
-            )
-          : [
-              {
-                type: rpcData.type || "PLAYING",
-                name: rpcData.name || "Vexil Selfbot",
-                details: rpcData.details || "",
-                state: rpcData.state || "",
-                url: rpcData.url || "",
-                timestamps: rpcData.timestamps || null,
-                party: rpcData.party || null,
-                assets: rpcData.assets || null,
-                buttons: rpcData.buttons || [],
-              },
-            ];
+      const presenceEntries = [
+        {
+          type: rpcData.type || "PLAYING",
+          name: rpcData.name || "Vexil Selfbot",
+          details: rpcData.details || "",
+          state: rpcData.state || "",
+          url: rpcData.url || "",
+          timestamps: rpcData.timestamps || null,
+          party: rpcData.party || null,
+          assets: rpcData.assets || null,
+          buttons: rpcData.buttons || [],
+        },
+      ];
 
-      if (streamingStatuses.length > 1 && options.manageRotation !== false) {
-        this.ensureStreamingRotation(client, config);
-      } else if (streamingStatuses.length < 2) {
-        this.clearStreamingRotation();
-      }
+      this.clearStreamingRotation();
 
       const activities = await Promise.all(
         presenceEntries.filter(Boolean).map(async (entry) => {
@@ -533,62 +523,7 @@ export class RpcManager {
   }
 
   ensureStreamingRotation(client, config) {
-    const rpcData = config?.rpc?.default || {};
-
-    const entries = this.getStreamingStatuses(rpcData);
-
-    if (entries.length < 2) {
-      this.clearStreamingRotation();
-      return;
-    }
-
-    const rotationInterval = this.getRotationInterval(rpcData, config);
-    const signature = JSON.stringify(
-      entries.map((entry) => ({
-        name: entry.name,
-        details: entry.details,
-        state: entry.state,
-        url: entry.url,
-      })),
-    );
-
-    const combinedSignature = `${signature}:${rotationInterval}`;
-
-    if (this.streamingRotationSignature !== combinedSignature) {
-      this.clearStreamingRotation();
-      this.streamingRotationSignature = combinedSignature;
-    }
-
-    if (this.streamingRotationTimer) {
-      return;
-    }
-
-    this.streamingRotationTimer = setInterval(async () => {
-      try {
-        const latestConfig = this.getCurrentConfig();
-        const latestRpcData = latestConfig?.rpc?.default || rpcData;
-        const latestEntries = this.getStreamingStatuses(latestRpcData);
-
-        if (
-          !latestConfig ||
-          !latestConfig.rpc ||
-          !latestConfig.rpc.enabled ||
-          latestEntries.length < 2
-        ) {
-          this.clearStreamingRotation();
-          return;
-        }
-
-        this.streamingRotationIndex =
-          (this.streamingRotationIndex + 1) % latestEntries.length;
-        await this.updatePresence(client, latestConfig, {
-          manageRotation: false,
-          rotationIndex: this.streamingRotationIndex,
-        });
-      } catch (error) {
-        this.clearStreamingRotation();
-      }
-    }, rotationInterval);
+    this.clearStreamingRotation();
   }
 
   async forceReload() {
