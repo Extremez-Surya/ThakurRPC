@@ -197,8 +197,7 @@ export default {
         const customStatusTexts = normalizeCustomStatusEntries(customStatus);
         const configuredIntervalMs =
           Number(customStatus.rotation_interval_ms) || 5000;
-        // Keep the rotation interval at a minimum of 5 seconds so fast rotations remain usable.
-        const safeBaseIntervalMs = Math.max(configuredIntervalMs, 5000);
+        const safeBaseIntervalMs = Math.max(configuredIntervalMs, 15000);
 
         if (customStatusTexts.length > 0) {
           let currentIndex = 0;
@@ -212,7 +211,8 @@ export default {
             await applyCustomStatus(client, customStatusTexts[currentIndex]);
           } catch (error) {
             if (error?.response?.status === 429) {
-              nextDelayMs = safeBaseIntervalMs;
+              nextDelayMs = getRetryDelayMs(error, 60000);
+              log(`Custom status rotation rate limited on startup. Waiting ${nextDelayMs / 1000}s.`, "warn");
             } else {
               log(
                 `Failed to apply initial custom status: ${error.message}`,
@@ -239,7 +239,8 @@ export default {
                   nextDelayMs = safeBaseIntervalMs;
                 } catch (error) {
                   if (error?.response?.status === 429) {
-                    nextDelayMs = safeBaseIntervalMs;
+                    nextDelayMs = getRetryDelayMs(error, 60000);
+                    log(`Custom status rotation rate limited. Retrying in ${nextDelayMs / 1000}s.`, "warn");
                   } else {
                     log(
                       `Failed to rotate custom status: ${error.message}`,
