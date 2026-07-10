@@ -1,0 +1,83 @@
+# ====================================================================
+# 🎨 VEXIL RICH PRESENCE CONFIGURATION
+# ====================================================================
+# This file controls your Discord Rich Presence (custom status)
+#
+# 🚀 WHAT YOU CAN DO:
+# • Show custom games with images and buttons
+# • Display what you're listening to/watching
+# • Add clickable buttons to your profile
+# • Show timestamps and party info
+# • Use Discord app assets OR external URLs
+# • Real-time updates without file writes!
+#
+# 📖 FULL GUIDE: docs/RPC.md
+# ====================================================================
+
+# Rich Presence Master Settings
+rpc:
+  # Enable/disable Rich Presence globally
+  enabled: true
+
+  # Application ID for Rich Presence (required for assets)
+  # 📝 Get yours from: https://discord.com/developers/applications
+  application_id: "1466796395112566876"
+
+  # Default Rich Presence settings
+  default:
+    # Rotate to the next card every 30 seconds
+    rotation_interval_ms: 30000
+
+    # Activity type: PLAYING, STREAMING, LISTENING, WATCHING, COMPETING
+    type: "STREAMING"
+
+    # Main activity name (what shows as "Playing ...")
+    # 📝 Examples: "My Custom Game", "Spotify", "YouTube"
+    name: "discord.gg/adoreme"
+
+    # Activity details (smaller text)
+    # 📝 Examples: "Level 50 Warrior", "Chill Vibes Playlist"
+    details: "Thakur On Top"
+
+    # Activity state (bottom text)
+    # 📝 Examples: "github.com/username", "Live Now!", "3/25 songs"
+    state: "I love you Nini 💝"
+
+    # Streaming URL (only for STREAMING type)
+    # 📝 Example: "https://twitch.tv/yourchannel"
+    url: "https://www.twitch.tv/thakur"
+
+    # Multiple streaming cards shown in the Activity tab
+    streaming_statuses:
+      - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
+        details: "𝓘 𝓐𝓭𝓸𝓻𝓮 𝔂𝓸𝓾 𝒏𝒊𝒏𝒊 💝"
+        state: "discord.gg/adoreme"
+        url: "https://www.twitch.tv/thakur"
+
+    # Party information (shows as "X of Y players")
+    party:
+      current: 1
+      max: 1
+      id: ""
+
+    # Timestamps (shows elapsed time)
+    # 📝 Use: "now", "+1h", "1640995200000", or null
+    timestamps:
+      start: null
+      end: null
+
+    # Image assets - THREE WAYS TO SET:
+    # 1. Discord app asset names: "mylogo", "mythunder"
+    # 2. Direct asset IDs: "929325841350000660"
+    # 3. External URLs: "https://i.imgur.com/abc.png"
+    assets:
+      large_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1524327811597205624/large.gif?ex=6a4f5866&is=6a4e06e6&hm=cfa126be6157feb88fd50639474d0f8ac087dbb6413472aad42aee32fe42bea3&" # Large image (512x512px recommended)
+      large_text: "" # Hover text for large image
+      small_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1524327811165196338/small.gif?ex=6a4f5866&is=6a4e06e6&hm=ff115c66b1fb00807198acbcf5ea670091c6e2ed2758795862238d7d81c7d6bc&" # Small image (128x128px recommended)
+      small_text: "THAKUR ON TOP" # Hover text for small image
+
+    # Clickable buttons (max 2 buttons)
+    # 📝 Each button needs: label + URL
+    buttons:
+      - label: "Adore Me <3"
+        url: "https://discord.gg/adoreme"
