@@ -69,19 +69,60 @@ export function loadConfig(forceReload = false) {
 
   try {
     const configPath = path.join(__dirname, "..", "config.yaml");
-    if (!fs.existsSync(configPath)) {
-      throw new Error(`Configuration file not found at: ${configPath}`);
+
+    // 1) Load from config.yaml if present.
+    // Some repos accidentally contain NUL bytes / odd encodings in config.yaml.
+    // Render (and some YAML parsers) will fail hard on "null byte is not allowed".
+    // If YAML parsing fails, we fallback to {} and rely on env vars.
+    let fileConfig = null;
+    if (fs.existsSync(configPath)) {
+      try {
+        const configFileRaw = fs.readFileSync(configPath, "utf8");
+        const configFile = configFileRaw.replace(/\u0000/g, "");
+        fileConfig = yaml.load(configFile);
+      } catch (e) {
+        fileConfig = null;
+      }
     }
 
-    const configFile = fs.readFileSync(configPath, "utf8");
-    configCache = yaml.load(configFile);
+    // 2) Base config object (from file or empty)
+    configCache = fileConfig || {};
 
     if (!configCache || typeof configCache !== "object") {
       throw new Error("Invalid configuration: File is empty or not a valid YAML object");
     }
 
-    if (!configCache.selfbot) {
-      throw new Error('Invalid configuration: Missing "selfbot" section');
+    // 3) Ensure selfbot section exists
+    if (!configCache.selfbot) configCache.selfbot = {};
+
+    // 4) Allow Render env vars to override secrets safely
+    // Required for Render: SELF_BOT_TOKEN
+    const envToken = process.env.SELF_BOT_TOKEN;
+    if (envToken && typeof envToken === "string" && envToken.trim()) {
+      configCache.selfbot.token = envToken.trim();
+    }
+
+    const envPrefix = process.env.SELF_BOT_PREFIX;
+    if (envPrefix && typeof envPrefix === "string" && envPrefix.trim()) {
+      configCache.selfbot.prefix = envPrefix.trim();
+    }
+
+    const envStatus = process.env.SELF_BOT_STATUS;
+    if (envStatus && typeof envStatus === "string" && envStatus.trim()) {
+      configCache.selfbot.status = envStatus.trim();
+    }
+
+    // Groq key override (used by +ask)
+    if (process.env.GROQ_API_KEY && typeof process.env.GROQ_API_KEY === "string") {
+      if (!configCache.ai) configCache.ai = {};
+      configCache.ai.groq_api_key = process.env.GROQ_API_KEY.trim();
+    }
+
+    // If we still have no token and no file, fail with helpful message
+    if (!configCache.selfbot || !configCache.selfbot.token) {
+      throw new Error(
+        "Missing Discord token. Provide config.yaml or set environment variable SELF_BOT_TOKEN."
+      );
     }
 
     return configCache;

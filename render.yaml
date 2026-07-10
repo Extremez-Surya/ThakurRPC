@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: vexil
+    runtime: node
+    plan: free
+    env: {}
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+
