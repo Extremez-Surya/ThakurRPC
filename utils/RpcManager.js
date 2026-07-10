@@ -289,20 +289,7 @@ export class RpcManager {
             .setDetails(entry.details || "")
             .setState(entry.state || "");
 
-          // Temporary debug to verify external-assets path selection
-          // (will print only when entry.assets contains http(s) URLs)
-          // eslint-disable-next-line no-console
-          if (entry?.assets?.large_image || entry?.assets?.small_image) {
-            // eslint-disable-next-line no-console
-            console.log(
-              "[RPC] entry.assets.large_image:",
-              entry?.assets?.large_image,
-            );
-            console.log(
-              "[RPC] entry.assets.small_image:",
-              entry?.assets?.small_image,
-            );
-          }
+
 
           if ((entry.type || "STREAMING") === "STREAMING") {
             rpc.setURL(entry.url || "https://www.twitch.tv/directory");
