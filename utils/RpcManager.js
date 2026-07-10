@@ -4,6 +4,11 @@ import { fileURLToPath } from "url";
 import yaml from "js-yaml";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+function isDiscordUrl(url) {
+  if (!url || typeof url !== "string") return false;
+  return url.includes("cdn.discordapp.com") || url.includes("media.discordapp.net");
+}
+
 export class RpcManager {
   constructor() {
     this.rpcConfig = null;
@@ -158,18 +163,8 @@ export class RpcManager {
       return assetInput;
     }
 
-    if (assetInput.includes("cdn.discordapp.com")) {
-      try {
-        const parsed = new URL(assetInput);
-        parsed.search = "";
-        parsed.hash = "";
-        return parsed.toString();
-      } catch {
-        const pathMatch = assetInput.match(/cdn\.discordapp\.com\/[^?#]+/);
-        if (pathMatch) {
-          return `https://${pathMatch[0]}`;
-        }
-      }
+    if (assetInput.includes("cdn.discordapp.com") || assetInput.includes("media.discordapp.net")) {
+      return assetInput;
     }
 
     if (
@@ -202,10 +197,10 @@ export class RpcManager {
   }
 
   async updatePresence(client, customConfig = null, options = {}) {
-    console.log("updatePresence called");
     if (!this.canUpdate()) {
       return false;
     }
+
 
     try {
       const config = customConfig || this.rpcConfig;
@@ -258,14 +253,16 @@ export class RpcManager {
 
             if (
               entry.assets.large_image &&
-              entry.assets.large_image.startsWith("http")
+              entry.assets.large_image.startsWith("http") &&
+              !isDiscordUrl(entry.assets.large_image)
             ) {
               urls.push(entry.assets.large_image);
             }
 
             if (
               entry.assets.small_image &&
-              entry.assets.small_image.startsWith("http")
+              entry.assets.small_image.startsWith("http") &&
+              !isDiscordUrl(entry.assets.small_image)
             ) {
               urls.push(entry.assets.small_image);
             }
@@ -278,9 +275,7 @@ export class RpcManager {
                   ...urls,
                 );
 
-                console.log("====== RAW EXTERNAL ASSETS ======");
-                console.dir(externalAssets, { depth: null });
-                console.log("=================================");
+
               } catch (err) {
                 console.error("[RPC] getExternal Error:", err);
               }
@@ -335,7 +330,10 @@ export class RpcManager {
 
             // Large Image
             if (entry.assets.large_image) {
-              if (entry.assets.large_image.startsWith("http")) {
+              if (
+                entry.assets.large_image.startsWith("http") &&
+                !isDiscordUrl(entry.assets.large_image)
+              ) {
                 rpc.setAssetsLargeImage(
                   externalAssets[index++]?.external_asset_path ??
                     entry.assets.large_image,
@@ -353,7 +351,10 @@ export class RpcManager {
 
             // Small Image
             if (entry.assets.small_image) {
-              if (entry.assets.small_image.startsWith("http")) {
+              if (
+                entry.assets.small_image.startsWith("http") &&
+                !isDiscordUrl(entry.assets.small_image)
+              ) {
                 rpc.setAssetsSmallImage(
                   externalAssets[index++]?.external_asset_path ??
                     entry.assets.small_image,
@@ -546,7 +547,7 @@ export class RpcManager {
 
   ensureStreamingRotation(client, config) {
     const rpcData = config?.rpc?.default || {};
-    console.log(entry.assets);
+
     const entries = this.getStreamingStatuses(rpcData);
 
     if (entries.length < 2) {

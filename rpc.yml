@@ -53,6 +53,18 @@ rpc:
         details: "𝓘 𝓐𝓭𝓸𝓻𝓮 𝔂𝓸𝓾 𝒏𝒊𝒏𝒊 💝"
         state: "discord.gg/adoreme"
         url: "https://www.twitch.tv/thakur"
+      - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
+        details: "𝐎𝐮𝐭 𝐨𝐟 𝐦𝐲 𝐋𝐞𝐚𝐠𝐮𝐞 👑"
+        state: "discord.gg/adoreme"
+        url: "https://www.twitch.tv/thakur"
+      - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
+        details: "𝐋𝐞𝐠𝐚𝐜𝐲 𝐎𝐯𝐞𝐫 𝐏𝐨𝐩𝐮𝐥𝐚𝐫𝐢𝐭𝐲 💯"
+        state: "discord.gg/adoreme"
+        url: "https://www.twitch.tv/thakur"
+      - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
+        details: "𝐈 𝐝𝐨𝐧'𝐭 𝐜𝐨𝐦𝐩𝐞𝐭𝐞, 𝐈 𝐝𝐨𝐦𝐢𝐧𝐚𝐭𝐞 ⚡"
+        state: "discord.gg/adoreme"
+        url: "https://www.twitch.tv/thakur"
 
     # Party information (shows as "X of Y players")
     party:

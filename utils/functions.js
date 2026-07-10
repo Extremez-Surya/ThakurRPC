@@ -77,7 +77,12 @@ export function loadConfig(forceReload = false) {
     let fileConfig = null;
     if (fs.existsSync(configPath)) {
       try {
-        const configFileRaw = fs.readFileSync(configPath, "utf8");
+        const buffer = fs.readFileSync(configPath);
+        let encoding = "utf8";
+        if (buffer[0] === 0xff && buffer[1] === 0xfe) {
+          encoding = "utf16le";
+        }
+        const configFileRaw = buffer.toString(encoding);
         const configFile = configFileRaw.replace(/\u0000/g, "");
         fileConfig = yaml.load(configFile);
       } catch (e) {
