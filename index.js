@@ -17,6 +17,7 @@
 
 // Import required Discord.js modules
 import { Client } from "discord.js-selfbot-v13";
+import http from "http";
 
 // Import styling and display modules
 import chalk from "chalk";
@@ -39,6 +40,7 @@ import { initNitroSniper } from "./commands/general/nitrosniper.js";
 // Global variables for graceful shutdown
 let isShuttingDown = false;
 let client = null;
+let server = null;
 
 /**
  * Display a fancy ASCII art banner with gradient colors
@@ -201,6 +203,16 @@ function setupSignalHandlers(discordClient) {
       log("Cleaning up active tasks...", "info");
       await TaskManager.cleanup();
 
+      // Close HTTP server
+      if (server && server.close) {
+        log("Closing HTTP server...", "info");
+        try {
+          server.close();
+        } catch (error) {
+          log(`Error closing HTTP server: ${error.message}`, "warn");
+        }
+      }
+
       // Step 3: Destroy Discord client connection
       if (discordClient && discordClient.destroy) {
         log("Closing Discord connection...", "info");
@@ -250,6 +262,15 @@ function setupSignalHandlers(discordClient) {
 
   log("Signal handlers registered for graceful shutdown", "debug");
 }
+
+// Start a simple HTTP server to satisfy Render's health checks and UptimeRobot pings
+const PORT = process.env.PORT || 3000;
+server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Vexil Selfbot is running!\n");
+}).listen(PORT, () => {
+  log(`HTTP server listening on port ${PORT} for health checks`, "success");
+});
 
 /**
  * Main initialization function for the Discord selfbot

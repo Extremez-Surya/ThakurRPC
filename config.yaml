@@ -17,8 +17,8 @@ selfbot:
   # NEVER share your token with anyone!
   token: ""
   # Command prefix - what you type before commands
-  # Example: if prefix is "+", you use "+help"
-  prefix: ","
+  # Example if prefix is "!", you use "!help"
+  prefix: "!"
 
   # Your Discord status (online, idle, dnd, invisible)
   # dnd = Do Not Disturb (recommended for selfbots)
