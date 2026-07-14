@@ -567,7 +567,7 @@ export class RpcManager {
           streaming_statuses: [
             {
               name: "Vexil Selfbot",
-              details: "𝐝𝐢𝐬𝐨𝐜𝐫𝐝.𝐠𝐠/𝐚𝐝𝐨𝐫𝐞𝐦𝐞𝒏𝒊𝒏𝒊 💝",
+              details: "𝐓𝐡𝐚𝐤𝐮𝐫𝐎𝐧𝐓𝐨𝐩𝒏𝒊𝒏𝒊 💝",
               state: "discord.gg/adoreme",
               url: "https://www.twitch.tv/thakur",
             },
