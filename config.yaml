@@ -43,7 +43,7 @@ selfbot:
         text: "𝐈 𝐝𝐨𝐧'𝐭 𝐜𝐨𝐦𝐩𝐞𝐭𝐞, 𝐈 𝐝𝐨𝐦𝐢𝐧𝐚𝐭𝐞"
       - emoji_name: "cutie"
         emoji_id: "1522228749087801435"
-        text: "𝑰 𝒂𝒅𝒐𝒓𝒆 𝒚𝒐𝒖 𝒏𝒊𝒏𝒊"
+        text: "𝐝𝐢𝐬𝐨𝐜𝐫𝐝.𝐠𝐠/𝐚𝐝𝐨𝐫𝐞𝐦𝐞"
 
   # Toggle the DM logs on console
   dm_logs: false
