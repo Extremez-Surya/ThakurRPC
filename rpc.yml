@@ -37,7 +37,7 @@ rpc:
 
     # Activity details (smaller text)
     # 📝 Examples: "Level 50 Warrior", "Chill Vibes Playlist"
-    details: "𝐓𝐡𝐚𝐤𝐮𝐫𝐎𝐧𝐓𝐨𝐩 💝"
+    details: "! 𝐓𝐡𝐚𝐤𝐮𝐫 𝐎𝐧 𝐓𝐨𝐩 🔱"
 
     # Activity state (bottom text)
     # 📝 Examples: "github.com/username", "Live Now!", "3/25 songs"
@@ -51,7 +51,7 @@ rpc:
     # (Disabled to prevent rotation in the streaming status UI)
     # streaming_statuses:
     #   - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
-    #     details: "𝐓𝐡𝐚𝐤𝐮𝐫𝐎𝐧𝐓𝐨𝐩 💝"
+    #     details: "! 𝐓𝐡𝐚𝐤𝐮𝐫 𝐎𝐧 𝐓𝐨𝐩 🔱"
     #     state: "discord.gg/adoreme"
     #     url: "https://www.twitch.tv/thakur"
     #   - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"

@@ -567,7 +567,7 @@ export class RpcManager {
           streaming_statuses: [
             {
               name: "Vexil Selfbot",
-              details: "𝐓𝐡𝐚𝐤𝐮𝐫𝐎𝐧𝐓𝐨𝐩𝒏𝒊𝒏𝒊 💝",
+              details: "! 𝐓𝐡𝐚𝐤𝐮𝐫 𝐎𝐧 𝐓𝐨𝐩𝒏𝒊𝒏𝒊 🔱",
               state: "discord.gg/adoreme",
               url: "https://www.twitch.tv/thakur",
             },
@@ -575,7 +575,7 @@ export class RpcManager {
               name: "Vexil Selfbot",
               type: "COMPETING",
               details: "out of my league",
-              state: "I adore you nini 💝",
+              state: "I adore you nini 🔱",
               url: "https://www.twitch.tv/thakur",
             },
             {

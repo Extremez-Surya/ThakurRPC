@@ -481,7 +481,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-## 💝 **Support the Project**
+## 🔱 **Support the Project**
 
 If you find Vexil useful, please consider supporting the project:
 

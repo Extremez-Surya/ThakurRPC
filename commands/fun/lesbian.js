@@ -31,7 +31,7 @@ export default {
       emoji = "🌈";
       messageText = "SUPER LESBIAN!";
     } else if (percentage > 75) {
-      emoji = "💝";
+      emoji = "🔱";
       messageText = "Pretty lesbian!";
     } else if (percentage > 50) {
       emoji = "💫";
