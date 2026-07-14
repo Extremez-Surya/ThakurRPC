@@ -51,7 +51,7 @@ rpc:
     # (Disabled to prevent rotation in the streaming status UI)
     # streaming_statuses:
     #   - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
-    #     details: "𝓘 𝓐𝓭𝓸𝓻e 𝔂𝓸𝓾 𝓝𝓲𝓷𝓲 💝"
+    #     details: "𝐝𝐢𝐬𝐨𝐜𝐫𝐝.𝐠𝐠/𝐚𝐝𝐨𝐫𝐞𝐦𝐞 💝"
     #     state: "discord.gg/adoreme"
     #     url: "https://www.twitch.tv/thakur"
     #   - name: "𝑻𝒉𝒂𝒌𝒖𝒓 𝑶𝑷"
