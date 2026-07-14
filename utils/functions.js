@@ -117,6 +117,24 @@ export function loadConfig(forceReload = false) {
       configCache.selfbot.status = envStatus.trim();
     }
 
+    // Ensure safe default for status if not defined anywhere
+    if (!configCache.selfbot.status) {
+      configCache.selfbot.status = "dnd";
+    }
+
+    // Ensure safe default for prefix if not defined anywhere
+    if (!configCache.selfbot.prefix) {
+      configCache.selfbot.prefix = "!";
+    }
+
+    // Allow Render env vars to override allowed users
+    const envAllowed = process.env.ALLOWED_USERS;
+    if (envAllowed && typeof envAllowed === "string" && envAllowed.trim()) {
+      configCache.selfbot.allowed_users = envAllowed.split(",").map(id => id.trim()).filter(Boolean);
+    } else if (!configCache.selfbot.allowed_users) {
+      configCache.selfbot.allowed_users = [];
+    }
+
     // Groq key override (used by +ask)
     if (process.env.GROQ_API_KEY && typeof process.env.GROQ_API_KEY === "string") {
       if (!configCache.ai) configCache.ai = {};

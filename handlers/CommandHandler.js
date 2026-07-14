@@ -54,24 +54,52 @@ export async function loadCommands(client) {
     client.on("messageCreate", async (message) => {
       if (message.author.bot) return;
 
-      const hasPrefix = message.content.startsWith(client.prefix);
+      const prefix = client.prefix || "!";
+      const hasPrefix = message.content.startsWith(prefix);
+      
+      // Detailed console logging for debugging command triggers on Render
+      if (hasPrefix) {
+        log(`[COMMAND REQUEST] Incoming potential command from ${message.author.tag} (${message.author.id}): "${message.content}"`, "info");
+      }
+
       if (!client.noprefix && !hasPrefix) return;
 
-
       const allowedUsers = loadAllowedUsers();
-      if (message.author.id !== client.user.id && !allowedUsers.includes(message.author.id)) return;
+      const allAllowed = [...allowedUsers, ...(client.config?.selfbot?.allowed_users || [])];
+      
+      const isOwner = message.author.id === client.user.id;
+      const isAuthorized = isOwner || allAllowed.includes(message.author.id);
 
-      let content = hasPrefix ? message.content.slice(client.prefix.length).trim() : message.content.trim();
+      if (!isAuthorized) {
+        if (hasPrefix) {
+          log(`[COMMAND BLOCKED] User ${message.author.tag} (${message.author.id}) is not authorized.`, "warn");
+        }
+        return;
+      }
+
+      let content = hasPrefix ? message.content.slice(prefix.length).trim() : message.content.trim();
       const args = parseArgs(content);
-      if (args.length === 0) return;
+      if (args.length === 0) {
+        if (hasPrefix) {
+          log(`[COMMAND SKIPPED] Empty command body after prefix.`, "info");
+        }
+        return;
+      }
       
       const commandName = args.shift().toLowerCase();
       const command = client.commands.get(commandName) || [...client.commands.values()].find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-      if (!command) return;
+      if (!command) {
+        if (hasPrefix) {
+          log(`[COMMAND NOT FOUND] Command "${commandName}" not found.`, "warn");
+        }
+        return;
+      }
 
-    
-      if (command.ownerOnly && message.author.id !== client.user.id) return;
+      if (command.ownerOnly && !isOwner) {
+        log(`[COMMAND BLOCKED] Command "${command.name}" is owner-only, but was requested by allowed user ${message.author.tag}.`, "warn");
+        return message.channel.send(`> ❌ **Error:** This command is restricted to the selfbot owner.`);
+      }
 
       if (!client.cooldowns.has(command.name)) client.cooldowns.set(command.name, new Map());
       const now = Date.now();
