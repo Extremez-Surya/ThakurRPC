@@ -84,9 +84,9 @@ rpc:
     # 2. Direct asset IDs: "929325841350000660"
     # 3. External URLs: "https://i.imgur.com/abc.png"
     assets:
-      large_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1526097434038501437/gh-general-hospital.gif?ex=6a55c87d&is=6a5476fd&hm=59f1184d4b3f8981a1e0c5a62aa093e3330f1790abc405322dd2629f8555ec83&" # Large image (512x512px recommended)
+      large_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1526496500782334023/1d59369c2dd61925a915d9a07af41c88.jpg?ex=6a573c26&is=6a55eaa6&hm=e6f0084d76364191794d0ef39d4432e9503d24c2937441302221c0eeac4025de&" # Large image (512x512px recommended)
       large_text: "" # Hover text for large image
-      small_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1526097433409360032/771191366121947176.gif?ex=6a55c87d&is=6a5476fd&hm=c408bccb810fab3e4fe4c30327b5c7238c07b1be5ac8ba47b110aebd10cde9be&" # Small image (128x128px recommended)
+      small_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1526496501008957470/771191366121947176.gif?ex=6a573c26&is=6a55eaa6&hm=4560612cbaa6c7cbf7bc34aa4962c246e1afb969c4d27c7814993cfdccfec202&" # Small image (128x128px recommended)
       small_text: "THAKUR ON TOP" # Hover text for small image
 
     # Clickable buttons (max 2 buttons)
