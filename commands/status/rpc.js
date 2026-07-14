@@ -523,7 +523,7 @@ export default {
           streaming_statuses: [
             {
               name: "",
-              details: "������𝐝.𝐠𝐠/������� 💝",
+              details: "𝐝𝐢𝐬𝐨𝐜𝐫𝐝.𝐠𝐠/𝐚𝐝𝐨𝐫𝐞𝐦𝐞 💝",
               state: "discord.gg/adoreme",
               url: "https://www.twitch.tv/thakur",
             },
