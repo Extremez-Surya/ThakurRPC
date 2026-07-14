@@ -517,13 +517,13 @@ export default {
         default: {
           type: "STREAMING",
           name: "Vexil Selfbot",
-          details: "𝓘 𝓐𝓭𝓸𝓻𝓮 𝔂𝓸𝓾 𝓝𝓲𝓷𝓲 💝",
+          details: "𝐝𝐢𝐬𝐨𝐜𝐫𝐝.𝐠𝐠/𝐚𝐝𝐨𝐫𝐞𝐦𝐞 💝",
           state: "discord.gg/adoreme",
           url: "https://www.twitch.tv/thakur",
           streaming_statuses: [
             {
               name: "",
-              details: "𝓘 𝓐𝓭𝓸𝓻𝓮 𝔂𝓸𝓾 𝓝𝓲𝓷𝓲 💝",
+              details: "������𝐝.𝐠𝐠/������� 💝",
               state: "discord.gg/adoreme",
               url: "https://www.twitch.tv/thakur",
             },
