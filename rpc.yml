@@ -84,9 +84,9 @@ rpc:
     # 2. Direct asset IDs: "929325841350000660"
     # 3. External URLs: "https://i.imgur.com/abc.png"
     assets:
-      large_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1526497535701684274/thakur-creative-vinyl-radium-sticker-mahadev-re-1689155637117-sku-13725-0-500x500.webp?ex=6a573d1d&is=6a55eb9d&hm=45cb209ff73b4c7f0a7f70a166bd72647fd642c700f078994383b60aa2e0cdfb&" # Large image (512x512px recommended)
+      large_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1527180712841707690/thakur-creative-vinyl-radium-sticker-mahadev-re-1689155637117-sku-13725-0-500x500.webp?ex=6a59b95f&is=6a5867df&hm=547796a4f7e34bb34cdf5ef9731d134c224f8e7d5a7adf4ed0bcb63e9a19b538&" # Large image (512x512px recommended)
       large_text: "" # Hover text for large image
-      small_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1526497535219466302/771191366121947176.gif?ex=6a573d1d&is=6a55eb9d&hm=64e58d405a6b095bdb05725e56bf88094e1dc832ecc40ec48e07371cda280842&" # Small image (128x128px recommended)
+      small_image: "https://cdn.discordapp.com/attachments/1406267598726762520/1527180713185771590/771191366121947176.gif?ex=6a59b95f&is=6a5867df&hm=5d623dc3d3804f66ad900ecf814c9110fe5e9547b19198c24930d36cfaea9f2f&" # Small image (128x128px recommended)
       small_text: "THAKUR ON TOP" # Hover text for small image
 
     # Clickable buttons (max 2 buttons)
