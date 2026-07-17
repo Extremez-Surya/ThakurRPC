@@ -124,7 +124,7 @@ export function loadConfig(forceReload = false) {
 
     // Ensure safe default for prefix if not defined anywhere
     if (!configCache.selfbot.prefix) {
-      configCache.selfbot.prefix = "!";
+      configCache.selfbot.prefix = "Og";
     }
 
     // Allow Render env vars to override allowed users

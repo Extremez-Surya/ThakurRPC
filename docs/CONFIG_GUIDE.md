@@ -33,7 +33,7 @@ selfbot:
 - **`prefix`** *(REQUIRED)*
   - **What it is**: Symbol you type before commands
   - **Example**: If prefix is `"+"`, you use `+help`
-  - **Recommended**: `"+"`, `"!"`, `"."`, `"$"`
+  - **Recommended**: `"+"`, `"Og"`, `"."`, `"$"`
 
 - **`status`** *(REQUIRED)*
   - **What it is**: Your Discord status

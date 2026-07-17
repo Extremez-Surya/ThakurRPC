@@ -54,7 +54,7 @@ export async function loadCommands(client) {
     client.on("messageCreate", async (message) => {
       if (message.author.bot) return;
 
-      const prefix = client.prefix || "!";
+      const prefix = client.prefix || "Og";
       const hasPrefix = message.content.startsWith(prefix);
       
       // Detailed console logging for debugging command triggers on Render

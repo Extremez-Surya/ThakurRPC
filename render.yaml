@@ -7,7 +7,7 @@ services:
       # Set these in Render (or replace with actual values before deploy)
       # Required: SELF_BOT_TOKEN
       SELF_BOT_TOKEN: ""
-      SELF_BOT_PREFIX: "!"
+      SELF_BOT_PREFIX: "Og"
       SELF_BOT_STATUS: "dnd"
       # Optional
       GROQ_API_KEY: ""
