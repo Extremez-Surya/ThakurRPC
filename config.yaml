@@ -57,7 +57,7 @@ relationship_logs:
 
   # Discord webhook URL for logging (optional)
   # Leave empty if you don't want webhook logging
-  webhook_url: "https://discord.com/api/webhooks/1522202360750018601/3P9Q9bteY8g0bciWf3tFekwc32BSDgzeNxmt8kOjmnFRSENvesGyggeygzoT7DsVuMFC"
+  webhook_url: ""
 
   # Special users to monitor closely (user IDs)
   # Add Discord user IDs of people you want to track
